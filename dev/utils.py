@@ -30,14 +30,22 @@ def add_image_label(frame_location, image_path):
     img_label.image = tk_image
     img_label.pack()
 
-def create_header_label(location, string, width=50, height=6):
+def create_header_label(location, string):
     label = tk.Label(location,
                      text=string,
                      fg = 'indigo',
                      bg = 'lavender',
                      font=('Ariel', 38))
     label.pack(fill='both', expand=True, padx=50, pady=50)
-    return None
+
+def create_question(location, string, xpad=5, ypad=20):
+    label = tk.Label(location,
+                        text=string,
+                        width=20,
+                        height=2,
+                        fg='indigo',
+                        bg='lavender')
+    label.pack(padx=xpad, pady=ypad)
 
 def load_quote(): 
     script_dir = Path(__file__).parent
