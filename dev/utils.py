@@ -3,16 +3,18 @@ import tkinter.ttk as ttk
 from PIL import Image, ImageTk
 import pandas as pd
 import random
+from onboard_client import *
 from pathlib import Path
 
 
-def create_button(location, string, xpad=30, ypad=10):
+def create_button(location, string, command_fn, xpad=30, ypad=10):
     button = tk.Button(location,
                         text=string,
                         width=20,
                         height=2,
                         fg='indigo',
-                        bg='lavender')
+                        bg='lavender',
+                        command = command_fn)
     button.pack(padx=xpad, pady=ypad)
 
 def process_image_for_background(image_path, bg):
@@ -58,4 +60,14 @@ def create_quote_label(location, width=50, height=6):
                      )
     label.pack(padx=50, pady=50, anchor='center')
     return None
+
+def clear_window(new_page, window):
+    for widget in window.winfo_children():
+        widget.destroy()
+    new_page()
+
+def move_to_add_client(window):
+    for widget in window.winfo_children():
+        widget.destroy()
+        create_add_client_frame(window)
 

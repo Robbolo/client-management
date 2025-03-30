@@ -1,11 +1,13 @@
 import tkinter as tk
-import tkinter.ttk as ttk
-from PIL import Image, ImageTk
 from utils import *
 from start_page import *
+from onboard_client import *
 
 
 window = tk.Tk()
 window.configure(bg='lavender')
-create_start_page()
+window.geometry('1200x800')
+
+create_start_page(window)
+
 window.mainloop()

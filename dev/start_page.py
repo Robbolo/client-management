@@ -1,7 +1,8 @@
 import tkinter as tk
 from utils import *
+from onboard_client import *
 
-def create_start_page():
+def create_start_page(window):
 
     start_page_frame = tk.Frame(window, bg = 'lavender')
     start_page_frame.pack()
@@ -24,10 +25,18 @@ def create_start_page():
     btn_frame = tk.Frame(mid_frame, bg='lavender')
     btn_frame.pack(side='left', fill='both', expand=True)
 
-    todo_btn = create_button(btn_frame, 'See to-do list')
-    view_btn = create_button(btn_frame, 'View clients')
-    add_btn = create_button(btn_frame, 'Add new client')
-
+    todo_btn = create_button(btn_frame,
+                             'See to-do list',
+                             command_fn = lambda: move_to_add_client(window)
+                             )
+    view_btn = create_button(btn_frame,
+                             'View clients',
+                             command_fn = lambda: move_to_add_client(window)
+                             )
+    add_btn = create_button(btn_frame,
+                            'Add new client',
+                            command_fn = lambda: move_to_add_client(window)
+                            )
 
     right_img = tk.Frame(mid_frame, bg='lavender')
     right_img.pack(side='right', fill='both', expand=True)
